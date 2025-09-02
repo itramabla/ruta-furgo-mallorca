@@ -15,54 +15,75 @@
     padding: 0;
     text-align: center;
   }
-  h1 { color: #2C3E50; margin-top: 20px; }
-  h2 { color: #2C3E50; margin-top: 20px; }
-  .container { padding: 20px; max-width: 800px; margin: 0 auto; }
-  img { width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
+  .hero {
+    width: 100%;
+    height: 300px;
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5em;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  h1, h2 { color: #2C3E50; margin-top: 20px; }
+  .container { padding: 20px; max-width: 900px; margin: 0 auto; }
+  img { width: 100%; max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
   .itinerary { list-style-type: none; padding: 0; }
-  .itinerary li { background-color: #fff; margin: 10px 0; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-  .itinerary li h3 { color: #2C3E50; }
-  .itinerary li p { color: #7F8C8D; }
-  #map { height: 500px; margin-top: 20px; border-radius: 8px; }
+  .itinerary li { background-color: #fff; margin: 15px 0; padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .itinerary li:hover { transform: translateY(-5px); }
+  .itinerary li h3 { color: #2C3E50; margin-bottom: 10px; }
+  .itinerary li p { color: #7F8C8D; margin: 5px 0 0 0; }
+  #map { height: 500px; margin-top: 30px; border-radius: 12px; }
+  @media (max-width: 600px) {
+    .hero { font-size: 2em; height: 200px; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Ruta en Furgoneta por Mallorca</h1>
-  <p>Itinerario adaptado para viajar con un bebé de 10 meses, incluyendo playas tranquilas, pueblos bonitos y áreas de pernocta.</p>
+  <div class="hero">Ruta en Furgoneta por Mallorca</div>
+  <div class="container">
+    <p>Itinerario adaptado para viajar con un bebé de 10 meses, incluyendo playas tranquilas, pueblos bonitos y áreas de pernocta.</p>
 
-  <h2>Itinerario</h2>
-  <ul class="itinerary">
-    <li>
-      <h3>Día 1: Port d'Alcúdia → Cala Santanyí</h3>
-      <img src="https://www.seemallorca.com/puerto-alcudia" alt="Port d'Alcúdia">
-      <p>Pernocta: Camí des Torrent, Santanyí.</p>
-    </li>
-    <li>
-      <h3>Día 2: Cala Santanyí → Cala Mondragó → Cala Mesquida</h3>
-      <img src="https://www.seemallorca.com/beaches/alcudia-beach-port-de-alcudia-port-d-alcudia-660936" alt="Cala Santanyí">
-      <p>Pernocta: Carrer des Rap, Cala Mesquida.</p>
-    </li>
-    <li>
-      <h3>Día 3: Cala Mesquida → Fornalutx</h3>
-      <img src="https://www.abc-mallorca.com/port-alcudia/" alt="Cala Mondragó">
-      <p>Pernocta: Área de ocio Ma-10, Fornalutx.</p>
-    </li>
-    <li>
-      <h3>Día 4: Fornalutx → Palma</h3>
-      <img src="https://www.abc-mallorca.com/port-alcudia/" alt="Cala Mesquida">
-      <p>Pernocta: Ciudad Jardín, Palma.</p>
-    </li>
-  </ul>
+    <h2>Itinerario</h2>
+    <ul class="itinerary">
+      <li>
+        <h3>Día 1: Port d'Alcúdia → Cala Santanyí</h3>
+        <img src="https://images.unsplash.com/photo-1603816240720-4df55d6349fc?auto=format&fit=crop&w=600&q=40" alt="Port d'Alcúdia">
+        <p>Pernocta: Camí des Torrent, Santanyí.</p>
+      </li>
+      <li>
+        <h3>Día 2: Cala Santanyí → Cala Mondragó → Cala Mesquida</h3>
+        <img src="https://images.unsplash.com/photo-1583454110559-f9e342091e2e?auto=format&fit=crop&w=600&q=40" alt="Cala Santanyí">
+        <p>Pernocta: Carrer des Rap, Cala Mesquida.</p>
+      </li>
+      <li>
+        <h3>Día 3: Cala Mesquida → Fornalutx</h3>
+        <img src="https://images.unsplash.com/photo-1570145309675-947403d11f21?auto=format&fit=crop&w=600&q=40" alt="Cala Mesquida">
+        <p>Pernocta: Área de ocio Ma-10, Fornalutx.</p>
+      </li>
+      <li>
+        <h3>Día 4: Fornalutx → Palma</h3>
+        <img src="https://images.unsplash.com/photo-1600166899695-33c2d8de2d44?auto=format&fit=crop&w=600&q=40" alt="Palma">
+        <p>Pernocta: Ciudad Jardín, Palma.</p>
+      </li>
+    </ul>
 
-  <h2>Mapa Interactivo</h2>
-  <div id="map"></div>
-</div>
+    <h2>Mapa Interactivo</h2>
+    <div id="map"></div>
+  </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var map = L.map('map').setView([39.65, 3.0], 10);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+  var map = L.map('map', {zoomControl: false}).setView([39.65, 3.0], 10);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
 
   var lugares = [
     {name: 'Port d\'Alcúdia', coords: [39.85, 3.15]},
@@ -73,15 +94,22 @@
     {name: 'Palma', coords: [39.569, 2.650]}
   ];
 
+  var customIcon = L.icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+  });
+
   lugares.forEach(function(lugar) {
-    L.marker(lugar.coords).addTo(map).bindPopup(lugar.name);
+    L.marker(lugar.coords, {icon: customIcon}).addTo(map).bindPopup(lugar.name);
   });
 
   var ruta = [
     [39.85, 3.15], [39.308, 3.207], [39.302, 3.211], [39.733, 3.400], [39.767, 2.678], [39.569, 2.650]
   ];
 
-  L.polyline(ruta, {color: 'blue'}).addTo(map).bindPopup('Ruta en furgoneta 4 días');
+  L.polyline(ruta, {color: '#FF6F61', weight: 5, opacity: 0.8, smoothFactor: 1}).addTo(map).bindPopup('Ruta en furgoneta 4 días');
 </script>
 </body>
 </html>
