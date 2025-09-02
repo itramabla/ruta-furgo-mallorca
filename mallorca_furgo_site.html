@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruta en Furgoneta por Mallorca</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+  #map { height: 500px; }
+  .container { padding: 20px; }
+  h1, h2 { color: #2c3e50; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Ruta en Furgoneta por Mallorca (4 días con bebé)</h1>
+  <p>Itinerario adaptado para viajar con un bebé de 10 meses, incluyendo playas tranquilas, pueblos bonitos y áreas de pernocta.</p>
+
+  <h2>Itinerario</h2>
+  <ul>
+    <li><strong>Día 1:</strong> Port d'Alcúdia → Cala Santanyí. Pernocta: Camí des Torrent, Santanyí.</li>
+    <li><strong>Día 2:</strong> Cala Santanyí → Cala Mondragó → Cala Mesquida. Pernocta: Carrer des Rap, Cala Mesquida.</li>
+    <li><strong>Día 3:</strong> Cala Mesquida → Fornalutx. Pernocta: Área de ocio Ma-10, Fornalutx.</li>
+    <li><strong>Día 4:</strong> Fornalutx → Palma. Pernocta: Ciudad Jardín, Palma.</li>
+  </ul>
+
+  <h2>Mapa Interactivo</h2>
+  <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([39.65, 3.0], 10);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  var lugares = [
+    {name: 'Port d\'Alcúdia', coords: [39.85, 3.15]},
+    {name: 'Cala Santanyí', coords: [39.308, 3.207]},
+    {name: 'Cala Mondragó', coords: [39.302, 3.211]},
+    {name: 'Cala Mesquida', coords: [39.733, 3.400]},
+    {name: 'Fornalutx', coords: [39.767, 2.678]},
+    {name: 'Palma', coords: [39.569, 2.650]}
+  ];
+
+  lugares.forEach(function(lugar) {
+    L.marker(lugar.coords).addTo(map).bindPopup(lugar.name);
+  });
+
+  var ruta = [
+    [39.85, 3.15], // Port d'Alcúdia
+    [39.308, 3.207], // Cala Santanyí
+    [39.302, 3.211], // Cala Mondragó
+    [39.733, 3.400], // Cala Mesquida
+    [39.767, 2.678], // Fornalutx
+    [39.569, 2.650]  // Palma
+  ];
+
+  L.polyline(ruta, {color: 'blue'}).addTo(map).bindPopup('Ruta en furgoneta 4 días');
+</script>
+</body>
+</html>
